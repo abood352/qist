@@ -1,0 +1,293 @@
+/* brand mark */
+.markArc {
+  animation: arcIn 700ms var(--ease-out) both;
+}
+@keyframes arcIn {
+  from {
+    stroke-dasharray: 0 62.8;
+  }
+}
+.logo {
+  border-radius: 14px;
+  flex: none;
+}
+.art {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* segments */
+.seg {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  min-width: 56px;
+}
+.seg i {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--line);
+  transform-origin: var(--seg-origin, left);
+  animation: segIn 520ms var(--ease-out) both;
+}
+[dir='rtl'] .seg i {
+  transform-origin: right;
+}
+.seg_paid {
+  background: var(--accent) !important;
+}
+.seg_due {
+  background: var(--amber) !important;
+}
+/* late is not colour alone: diagonal stripes as well */
+.seg_late {
+  background: repeating-linear-gradient(135deg, var(--coral) 0 4px, color-mix(in srgb, var(--coral) 45%, #fff) 4px 8px) !important;
+}
+.seg_refunded {
+  background: repeating-linear-gradient(45deg, var(--text-3) 0 3px, transparent 3px 6px) !important;
+  opacity: 0.6;
+}
+@keyframes segIn {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+/* limit ring */
+.ring {
+  position: relative;
+  flex: none;
+}
+.ringFill {
+  transition: stroke-dashoffset 1.2s var(--ease-out);
+}
+.ringIn {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  line-height: 1.15;
+}
+
+/* meter */
+.meter {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--lime-soft);
+  overflow: hidden;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  transition: width 900ms var(--ease-out);
+}
+.meter_accent {
+  background: var(--accent);
+}
+.meter_warn {
+  background: var(--amber);
+}
+
+/* brand tags */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding-inline: 8px;
+  border-radius: 7px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: var(--bg-sunken);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+.brand_mada {
+  color: #0a5a40;
+  background: #e1f4ea;
+}
+.brand_visa {
+  color: #1a3d9c;
+  background: #e5ecfb;
+}
+.brand_mastercard {
+  color: #9a3412;
+  background: #fdeadb;
+}
+.brand_applepay {
+  color: #10231c;
+  background: #eceee9;
+}
+:root[data-theme='dark'] .brand {
+  color: #10231c;
+  background: #dfe9e3;
+  border-color: transparent;
+}
+.methodLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.exp {
+  color: var(--text-3);
+  font-size: var(--text-sm);
+}
+
+/* method picker (radiogroup of cards) */
+.methods {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.methods legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.opt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 8px 14px;
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--line-strong);
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color var(--dur-1), background-color var(--dur-1);
+}
+.opt:hover {
+  border-color: var(--text-3);
+}
+.opt input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+.opt:has(input:focus-visible) {
+  box-shadow: var(--focus);
+}
+.optOn {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.optBody {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+}
+.opt small {
+  color: var(--green-text);
+  font-weight: 700;
+  font-size: var(--text-xs);
+}
+.optDot {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--line-strong);
+  display: grid;
+  place-items: center;
+}
+.optOn .optDot {
+  border-color: var(--accent);
+}
+.optOn .optDot::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* card form */
+.cardForm {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--r-md);
+  border: 1.5px dashed var(--line-strong);
+  background: var(--bg-raised);
+}
+.cardNote {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2);
+  font-size: var(--text-xs);
+}
+.cardActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.formError {
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+/* mini timeline */
+.mini {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: 6px;
+}
+.mini li {
+  position: relative;
+  display: grid;
+  gap: 1px;
+  padding: 8px 8px 8px;
+  border-radius: 12px;
+  background: var(--bg-sunken);
+  min-width: 0;
+}
+.mini i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line-strong);
+  margin-bottom: 2px;
+}
+.mini b {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+}
+.mini small {
+  color: var(--text-2);
+  font-size: var(--text-xs);
+}
+.miniToday {
+  background: var(--lime) !important;
+  color: var(--lime-ink);
+}
+.miniToday i {
+  background: var(--lime-ink);
+}
+.miniToday small {
+  color: var(--lime-ink);
+  font-weight: 700;
+}

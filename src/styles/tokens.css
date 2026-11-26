@@ -1,0 +1,141 @@
+/*
+ * قسط — design tokens.
+ * Identity: fintech-calm with a playful edge. Warm off-white canvas, deep emerald for every action,
+ * a lime highlight for fills and badges (always with dark text), amber for "due soon", coral for
+ * late / failed, green for paid. Night mode is a deep green-black with a mint accent.
+ * One family, Tajawal: 700 for headings and big numerals, 400 for text. Generous radii (18-22px).
+ * Text colours are chosen to meet WCAG AA (4.5:1) on their usual backgrounds.
+ */
+:root {
+  --font-display: 'Tajawal', system-ui, sans-serif;
+  --font-body: 'Tajawal', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --sand-50: #fbfcf9;
+  --sand-100: #f5f7f2;
+  --sand-200: #e6ebe1;
+  --forest-950: #08100c;
+  --forest-900: #0c1511;
+  --forest-800: #15221c;
+  --ink-900: #10231c;
+  --ink-600: #3f5249;
+  --ink-400: #5a6d63;
+  --emerald-600: #0d6e4f;
+  --emerald-700: #0a5a40;
+  --lime-400: #c8f169;
+  --amber-600: #b7791f;
+  --coral-600: #c4412c;
+
+  --text-xs: 0.78rem;
+  --text-sm: 0.9rem;
+  --text-md: 1.02rem;
+  --text-lg: 1.16rem;
+  --text-xl: 1.45rem;
+  --text-2xl: clamp(1.7rem, 3.6vw, 2.3rem);
+  --text-3xl: clamp(2.1rem, 5vw, 3.2rem);
+  --text-hero: clamp(2.5rem, 6.6vw, 4.4rem);
+  /* big friendly numerals: balances, instalment amounts */
+  --text-num: clamp(2.2rem, 7vw, 3.4rem);
+
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-card: 20px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 150ms;
+  --dur-2: 260ms;
+  --dur-3: 480ms;
+
+  --container: 1200px;
+  --gutter: clamp(16px, 3.6vw, 36px);
+  --header-h: 68px;
+  --tabbar-h: 0px;
+}
+@media (max-width: 860px) {
+  :root {
+    --tabbar-h: 56px;
+  }
+}
+
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f5f7f2;
+  --bg-raised: var(--sand-50);
+  --bg-sunken: var(--sand-200);
+  --surface: #ffffff;
+  --line: rgb(16 35 28 / 0.1);
+  --line-strong: rgb(16 35 28 / 0.38);
+  --text: var(--ink-900);
+  --text-2: var(--ink-600);
+  --text-3: var(--ink-400);
+  --accent: var(--emerald-600);
+  --accent-strong: var(--emerald-700);
+  --accent-soft: rgb(13 110 79 / 0.09);
+  --on-accent: #ffffff;
+  /* lime: fills and badges only, text on it is always --lime-ink */
+  --lime: var(--lime-400);
+  --lime-ink: #10231c;
+  --lime-soft: rgb(200 241 105 / 0.35);
+  --green: #1c8a52;
+  --green-text: #11683e;
+  --green-fill: #11683e;
+  --green-soft: rgb(28 138 82 / 0.11);
+  --amber: var(--amber-600);
+  --amber-text: #8a5a0e;
+  --amber-soft: rgb(183 121 31 / 0.12);
+  --coral: var(--coral-600);
+  --coral-text: #b0321f;
+  --coral-soft: rgb(196 65 44 / 0.1);
+  --danger: #b0321f;
+  --danger-soft: rgb(196 65 44 / 0.1);
+  --warn: #8a5a0e;
+  --warn-soft: rgb(183 121 31 / 0.12);
+  --shadow-1: 0 1px 2px rgb(16 35 28 / 0.05), 0 4px 16px rgb(16 35 28 / 0.06);
+  --shadow-2: 0 6px 14px rgb(16 35 28 / 0.08), 0 24px 56px rgb(16 35 28 / 0.15);
+  --skeleton: #e3e9de;
+  --skeleton-hi: #f1f5ed;
+  --focus: 0 0 0 3px var(--bg), 0 0 0 5px var(--emerald-600);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: var(--forest-900);
+  --bg-raised: var(--forest-800);
+  --bg-sunken: var(--forest-950);
+  --surface: #15221c;
+  --line: rgb(226 245 235 / 0.1);
+  --line-strong: rgb(226 245 235 / 0.4);
+  --text: #eaf5ee;
+  --text-2: #bdd0c5;
+  --text-3: #93aa9d;
+  --accent: #5fd7a4;
+  --accent-strong: #8ae8c0;
+  --accent-soft: rgb(95 215 164 / 0.14);
+  --on-accent: #08140e;
+  --lime: #d6ff7a;
+  --lime-ink: #10231c;
+  --lime-soft: rgb(214 255 122 / 0.16);
+  --green: #4fd8a0;
+  --green-text: #5fe0a8;
+  --green-fill: #11683e;
+  --green-soft: rgb(79 216 160 / 0.13);
+  --amber: #f0b45a;
+  --amber-text: #f0b45a;
+  --amber-soft: rgb(240 180 90 / 0.13);
+  --coral: #ff9a86;
+  --coral-text: #ff9a86;
+  --coral-soft: rgb(255 154 134 / 0.14);
+  --danger: #ff9a86;
+  --danger-soft: rgb(255 154 134 / 0.14);
+  --warn: #f0b45a;
+  --warn-soft: rgb(240 180 90 / 0.13);
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.3);
+  --shadow-2: 0 6px 14px rgb(0 0 0 / 0.35), 0 24px 56px rgb(0 0 0 / 0.5);
+  --skeleton: #1c2c24;
+  --skeleton-hi: #26392f;
+  --focus: 0 0 0 3px var(--bg), 0 0 0 5px #5fd7a4;
+}

@@ -1,0 +1,55 @@
+{
+  "url": "https://abdulhadi.review/projects/qist/",
+  "measuredAt": "2026-11-18T12:05:40.317Z",
+  "note": "Measured locally with `vite preview`, Lighthouse 12, simulated throttling.",
+  "mobile": {
+    "performance": 96,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcp": "2.5 s",
+    "fcp": "2.1 s",
+    "tbt": "0 ms",
+    "cls": "0.038",
+    "lcpElement": "<p class=\"_lead_o2d6u_31\">",
+    "lcpPhases": [
+      "TTFB: 455ms",
+      "Load Delay: 0ms",
+      "Load Time: 0ms",
+      "Render Delay: 1999ms"
+    ],
+    "failing": [
+      "first-contentful-paint",
+      "mainthread-work-breakdown",
+      "label-content-name-mismatch",
+      "render-blocking-resources",
+      "unused-javascript",
+      "network-dependency-tree-insight",
+      "render-blocking-insight"
+    ]
+  },
+  "desktop": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcp": "0.5 s",
+    "fcp": "0.5 s",
+    "tbt": "0 ms",
+    "cls": "0.036",
+    "lcpElement": "<h1>",
+    "lcpPhases": [
+      "TTFB: 125ms",
+      "Load Delay: 0ms",
+      "Load Time: 0ms",
+      "Render Delay: 380ms"
+    ],
+    "failing": [
+      "label-content-name-mismatch",
+      "render-blocking-resources",
+      "unused-javascript",
+      "network-dependency-tree-insight",
+      "render-blocking-insight"
+    ]
+  }
+}
